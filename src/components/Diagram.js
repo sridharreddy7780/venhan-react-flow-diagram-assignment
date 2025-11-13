@@ -262,7 +262,7 @@ function FlowInner() {
       window.removeEventListener("load-sample", onLoad);
       window.removeEventListener("clear-diagram", onClear);
     };
-  }, [importMetadata]);
+  }, [importMetadata, setNodes, setEdges]);
 
   // fit view when node count changes (debounced)
   useEffect(() => {
@@ -296,7 +296,7 @@ function FlowInner() {
     });
     ro.observe(container);
     return () => { ro.disconnect(); clearTimeout(timeout); };
-  }, [nodes.length, edges.length, applyAutoLayout, setNodes]);
+  }, [nodes, edges, applyAutoLayout, setNodes]);
 
   return (
     <div className="canvas-wrapper diagram-container" ref={containerRef}>
