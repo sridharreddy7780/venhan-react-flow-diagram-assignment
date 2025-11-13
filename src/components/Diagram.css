@@ -1,0 +1,8 @@
+.diagram-container{
+    background-image: linear-gradient(to right, #d7e5f1,#f26252 );
+}
+
+.add-button {
+    margin-right: 8px;
+    background-color: #d7e5f1;
+}

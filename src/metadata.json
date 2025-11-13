@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    { "id": "n1", "type": "default", "position": { "x": 60, "y": 60 }, "data": { "label": "VENHAN - Overview" } },
+    { "id": "n2", "type": "default", "position": { "x": 320, "y": 60 }, "data": { "label": "Services" } },
+    { "id": "n3", "type": "default", "position": { "x": 320, "y": 240 }, "data": { "label": "Clients (Demo)" } },
+    { "id": "n4", "type": "default", "position": { "x": 580, "y": 60 }, "data": { "label": "Delivery" } }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n1", "target": "n2", "label": "provides" },
+    { "id": "e2", "source": "n2", "target": "n3", "label": "serves" },
+    { "id": "e3", "source": "n2", "target": "n4", "label": "enables" }
+  ]
+}

@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+/* App.css */
+:root {
+  --sidebar-width: 280px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* full layout */
+.app-root {
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* left sidebar */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: 220px;
+  background: #cbffdc;
+  padding: 16px;
+  border-right: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/* canvas wrapper takes rest */
+.canvas-wrapper {
+  flex: 1 1 auto;
+  position: relative;
+  height: 100%;
+}
+
+/* small controls inside canvas */
+.mini-controls {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.mini-controls button, .sidebar-actions button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* file input label styling */
+.file-label input[type="file"] { display:none; }
+
+/* modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 100;
 }
-
-.App-link {
-  color: #61dafb;
+.modal {
+  background: white;
+  padding: 16px;
+  width: 360px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
+.form-row { margin: 8px 0; display:flex; flex-direction: column; gap:6px; }
+.form-row input { padding: 8px; border-radius: 6px; border: 1px solid #ddd; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* modal actions */
+.modal-actions { display:flex; justify-content:flex-end; gap:8px; margin-top: 12px; }
+.modal-actions .danger { background: #ffefef; color:#b00000; }
+
+/* responsiveness: collapse sidebar on small screens */
+@media (max-width: 780px) {
+  .app-root { flex-direction: column; }
+  .sidebar { width: 100%; height: 160px; border-right: none; border-bottom: 1px solid #e6e6e6; }
+  .canvas-wrapper { height: calc(100vh - 160px); }
 }
